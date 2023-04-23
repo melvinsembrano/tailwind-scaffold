@@ -1,15 +1,153 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  .tws__form__panel {
+  }
+
+  .tws__form__input {
+    @apply mt-2;
+  }
+
+  .tws__form__buttons {
+    @apply mt-6 flex items-center justify-end gap-x-6;
+  }
+
+  .tws__form__submit_button {
+    @apply rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+  }
+
+  .tws__form__cancel_button {
+    @apply text-sm font-semibold leading-6 text-gray-900;
+  }
+
+  .tws__form__text_field,
+  .tws__form__email_field,
+  .tws__form__password_field,
+  .tws__form__number_field,
+  .tws__form__select,
+  .tws__form__text_area {
+    @apply block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
+  }
+
+  .tws__form__title {
+    @apply text-2xl font-medium leading-6 text-gray-700;
+  }
+
+  .tws__table__panel {
+    @apply -mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8;
+  }
+
+  .tws__table__panel_a {
+    @apply inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8;
+  }
+
+  .tws__table__panel_b {
+    @apply overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg;
+  }
+
+  .tws__table {
+    @apply min-w-full divide-y divide-gray-300;
+  }
+
+  .tws__table__header {
+    @apply bg-gray-50;
+  }
+
+  .tws__table__header__cell {
+    @apply px-3 py-3.5 text-left text-sm font-semibold text-gray-900;
+  }
+  .tws__table__header__cell__actions {
+    @apply relative py-3.5 pl-3 pr-4 sm:pr-6;
+  }
+
+  .tws__table__body {
+    @apply divide-y divide-gray-200 bg-white;
+  }
+
+  .tws__table__cell {
+    @apply whitespace-nowrap px-3 py-4 text-sm text-gray-500;
+  }
+
+  .tws__table__button {
+    @apply block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+  }
+
+  .tws__table__cell__actions {
+    @apply relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6;
+  }
+}
+
+
+.pagy-nav,
+.pagy-nav-js {
+  @apply flex space-x-2;
+}
+
+.pagy-nav .page a,
+.pagy-nav .page.active,
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled,
+.pagy-nav-js .page a,
+.pagy-nav-js .page.active,
+.pagy-nav-js .page.prev.disabled,
+.pagy-nav-js .page.next.disabled {
+  @apply block rounded px-3 py-1 text-sm text-gray-500 font-semibold bg-gray-200 shadow-md;
+  &:hover{
+    @apply bg-gray-300;
+  }
+  &:active{
+    @apply bg-gray-400 text-white;
+  }
+}
+
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled,
+.pagy-nav-js .page.prev.disabled,
+.pagy-nav-js .page.next.disabled {
+  @apply text-gray-400 cursor-default;
+  &:hover {
+    @apply text-gray-400 bg-gray-200;
+  }
+  &:active {
+    @apply text-gray-400 bg-gray-200;
+  }
+}
+
+.pagy-nav .page.active,
+.pagy-nav-js .page.active {
+  @apply text-white cursor-default bg-gray-400;
+  &:hover {
+    @apply text-white bg-gray-400;
+  }
+  &:active {
+    @apply bg-gray-400 text-white;
+  }
+}
+
+
+.pagy-combo-nav-js {
+  @apply flex max-w-max rounded-full px-3 py-1 text-sm text-gray-500 font-semibold bg-gray-200 shadow-md;
+}
+
+.pagy-combo-nav-js .pagy-combo-input {
+  @apply bg-white px-2 rounded-sm
+}
+
+.pagy-combo-nav-js .page.prev,
+.pagy-combo-nav-js .page.next {
+  &:hover {
+    @apply text-gray-800;
+  }
+  &:active {
+    @apply text-gray-800;
+  }
+}
+
+.pagy-combo-nav-js .page.prev.disabled,
+.pagy-combo-nav-js .page.next.disabled {
+  @apply text-gray-400 cursor-default;
+}
+
