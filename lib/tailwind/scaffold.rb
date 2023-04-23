@@ -1,8 +1,9 @@
-require "tailwind/scaffold/version"
-require "tailwind/scaffold/engine"
+# frozen_string_literal: true
+
+require 'tailwind/scaffold/version'
+require 'tailwind/scaffold/engine'
 
 module Tailwind
   module Scaffold
-    # Your code goes here...
   end
 end
