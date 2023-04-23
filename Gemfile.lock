@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     tailwind-scaffold (0.1.0)
+      pagy (>= 6.0.3)
       rails (>= 7.0.4.3)
 
 GEM
@@ -105,6 +106,7 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.14.3-arm64-darwin)
       racc (~> 1.4)
+    pagy (6.0.3)
     racc (1.6.2)
     rack (2.2.6.4)
     rack-test (2.1.0)

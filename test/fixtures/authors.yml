@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Melvin Sembrano
+  description: the author description
+  birthday: 2001-04-23
+
+two:
+  name: John Wick
+  description: The John Wick
+  birthday: 2000-04-23

@@ -1,0 +1,13 @@
+<%= form_with(model: resource, url: resource_url(resource), builder: Tailwind::Scaffold::FormBuilder) do |form| %>
+  <%= form.errors_panel resource.errors %>
+  <div class="mt-3 grid grid-cols-1 gap-y-8">
+    <% form_fields(resource).each do |k,v| %>
+      <% if v[:type] == :select %>
+        <%= form.send "#{v[:type]}_panel", k, v[:collection], v[:options] %>
+      <% else %>
+        <%= form.send "#{v[:type]}_panel", k %>
+      <% end %>
+    <% end %>
+    <%= form.submit_panel cancel_url: resource_list_url  %>
+  </div>
+<% end %>

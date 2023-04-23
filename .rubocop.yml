@@ -3,6 +3,9 @@ Style/Documentation:
 
 Style/EmptyMethod:
   Enabled: false
-
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
 Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
   Enabled: false

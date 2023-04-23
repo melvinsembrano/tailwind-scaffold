@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+require 'pagy'
 
 module Tailwind
   module Scaffold
-    # Tailwind::Scaffold::BaseController
     class BaseController < ApplicationController
+      include ::Pagy::Backend
       include Tailwind::Scaffold::UrlHelpers
       include Tailwind::Scaffold::Attributes
 
