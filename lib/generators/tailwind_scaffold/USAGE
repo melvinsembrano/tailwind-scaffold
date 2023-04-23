@@ -1,0 +1,8 @@
+Description:
+    Generate new tailwind scaffold controller
+
+Example:
+    bin/rails generate tailwind_scaffold Thing
+
+    This will create:
+        app/controllers/things_controller.rb

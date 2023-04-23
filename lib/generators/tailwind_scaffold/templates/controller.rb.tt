@@ -1,0 +1,7 @@
+<% module_namespacing do -%>
+class <%= class_name.pluralize %>Controller < Tailwind::Scaffold::BaseController
+  def resource
+    <%= class_name %>
+  end
+end
+<% end -%>
