@@ -9,3 +9,8 @@ Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 Layout/EmptyLinesAroundModuleBody:
   Enabled: false
+Layout/ArgumentAlignment:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+

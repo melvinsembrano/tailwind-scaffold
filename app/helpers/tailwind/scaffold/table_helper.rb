@@ -30,11 +30,11 @@ module Tailwind
         content_tag(:table, options.merge(class: 'tws__table'), &block)
       end
 
-      def tws_table_header(headers)
+      def tws_table_header(attributes)
         content_tag(:thead, class: 'tws__table__header') do
           content_tag(:tr, class: 'tws__table__row') do
             [
-              headers.map { |header| content_tag(:th, header.to_s.humanize, class: 'tws__table__header__cell') },
+              attributes.map { |k, v| content_tag(:th, format_header_title(k, v), class: 'tws__table__header__cell') },
               content_tag(:th, '', class: 'tws__table__header__cell__actions')
             ].flatten.join.html_safe
           end

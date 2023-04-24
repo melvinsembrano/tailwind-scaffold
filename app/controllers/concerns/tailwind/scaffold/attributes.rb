@@ -8,12 +8,21 @@ module Tailwind
       # rubocop:disable Metrics/BlockLength
       included do
 
+        helper_method :resource_attributes,
+          :index_attributes, :form_fields
+
         def resource_attributes
           resource.attribute_names.map(&:to_sym)
         end
 
         def resource_index_attributes
           resource_attributes
+        end
+
+        def index_attributes
+          resource_index_attributes.each_with_object({}) do |attribute, hash|
+            hash[attribute] = { type: resource.columns_hash[attribute.to_s]&.type || :string }
+          end
         end
 
         def resource_create_attributes
@@ -34,7 +43,7 @@ module Tailwind
 
         def resource_form_attributes_with_type(instance)
           resource_form_attributes(instance).map do |attribute|
-            [attribute, resource.columns_hash[attribute.to_s].type]
+            [attribute, resource.columns_hash[attribute.to_s]&.type || :string]
           end
         end
 

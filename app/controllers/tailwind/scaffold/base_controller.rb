@@ -18,7 +18,7 @@ module Tailwind
       end
 
       def new
-        @resource = resource.new
+        @resource = scope.new
       end
 
       def edit
@@ -26,7 +26,7 @@ module Tailwind
 
       # rubocop:disable Metrics/AbcSize
       def create
-        @resource = resource.new(resource_params)
+        @resource = scope.new(resource_params)
 
         respond_to do |format|
           if @resource.save
@@ -61,9 +61,7 @@ module Tailwind
         end
       end
 
-      helper_method :resource, :resource_attributes, :resource_index_attributes,
-                    :resource_create_attributes, :resource_update_attributes, :resource_form_attributes,
-                    :resource_form_attributes_with_type, :form_fields
+      helper_method :resource
 
       def resource
         raise NotImplementedError
