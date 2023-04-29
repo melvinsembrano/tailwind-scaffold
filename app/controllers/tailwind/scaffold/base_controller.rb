@@ -3,7 +3,7 @@ require 'pagy'
 
 module Tailwind
   module Scaffold
-    class BaseController < ApplicationController
+    class BaseController < ::ApplicationController
       include ::Pagy::Backend
       include Tailwind::Scaffold::UrlHelpers
       include Tailwind::Scaffold::Attributes

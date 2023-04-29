@@ -5,6 +5,7 @@ module Tailwind
     module ApplicationHelper
       include ::Pagy::Frontend
       include TableHelper
+      include AttributesHelper
 
     end
   end
