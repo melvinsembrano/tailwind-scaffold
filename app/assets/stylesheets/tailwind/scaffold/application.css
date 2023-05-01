@@ -4,6 +4,9 @@
 
 @layer base {
 
+  .tws__form {
+    @apply p-3 sm:p-8 bg-white border border-gray-200 rounded shadow-sm sm:w-4/6 sm:mx-auto my-8;
+  }
   .tws__form__panel {
   }
 
@@ -34,8 +37,16 @@
     @apply block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6;
   }
 
+  .tws__form__input--error {
+    @apply text-red-900 ring-red-300 placeholder:text-red-300 focus:ring-red-500;
+  }
+
   .tws__form__title {
     @apply text-2xl font-medium leading-6 text-gray-700;
+  }
+
+  .tws__form__error {
+    @apply mt-2 text-sm text-red-600
   }
 
   .tws__table__panel {

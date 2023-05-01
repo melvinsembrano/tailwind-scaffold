@@ -1,0 +1,11 @@
+<div class="tws__form__panel">
+  <%= form.label method, class: 'tws__form__label' %>
+  <div class="tws__form__input">
+    <%= form.send field_type, method, { class: "tws__form__#{field_type} #{ "tws__form__input--error" if form.object.errors[method].any? }" }.merge(options) %>
+  </div>
+  <% if form.object.errors[method].any? %>
+    <div class="tws__form__error">
+      <%= form.object.errors[method].join(', ') %>
+    </div>
+  <% end %>
+</div>

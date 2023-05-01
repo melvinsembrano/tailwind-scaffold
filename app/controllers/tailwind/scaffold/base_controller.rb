@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'pagy'
 
 module Tailwind
@@ -9,6 +10,7 @@ module Tailwind
       include Tailwind::Scaffold::Attributes
 
       before_action :set_resource, only: %i[show edit update destroy]
+      layout 'tailwind/scaffold/application'
 
       def index
         @pagy, @resources = pagy scope
