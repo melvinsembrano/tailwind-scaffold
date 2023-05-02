@@ -6,8 +6,9 @@ module Tailwind
   module Scaffold
     class BaseController < ::ApplicationController
       include ::Pagy::Backend
-      include Tailwind::Scaffold::UrlHelpers
       include Tailwind::Scaffold::Attributes
+      include Tailwind::Scaffold::Authorisation
+      include Tailwind::Scaffold::UrlHelpers
 
       before_action :set_resource, only: %i[show edit update destroy]
       layout 'tailwind/scaffold/application'
@@ -32,7 +33,9 @@ module Tailwind
 
         respond_to do |format|
           if @resource.save
-            format.html { redirect_to resource_list_url, notice: "#{resource.name} was successfully created." }
+            format.html do
+              redirect_to after_resource_create_url(resource), notice: "#{resource.name} was successfully created."
+            end
             format.json { render :show, status: :created, location: @resource }
           else
             format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +48,9 @@ module Tailwind
       def update
         respond_to do |format|
           if @resource.update(resource_params)
-            format.html { redirect_to resource_list_url, notice: "#{resource.name} was successfully updated." }
+            format.html do
+              redirect_to after_resource_update_url(resource), notice: "#{resource.name} was successfully updated."
+            end
             format.json { render :show, status: :ok, location: @resource }
           else
             format.html { render :edit, status: :unprocessable_entity }
@@ -58,15 +63,19 @@ module Tailwind
         @resource.destroy
 
         respond_to do |format|
-          format.html { redirect_to resource_list_url, notice: "#{resource.name} was successfully destroyed." }
+          format.html { redirect_to after_resource_destroy_url, notice: "#{resource.name} was successfully destroyed." }
           format.json { head :no_content }
         end
       end
 
-      helper_method :resource
+      helper_method :resource, :title
 
       def resource
         raise NotImplementedError
+      end
+
+      def title
+        resource.model_name.human.pluralize
       end
 
       private

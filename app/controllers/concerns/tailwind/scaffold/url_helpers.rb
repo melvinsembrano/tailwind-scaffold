@@ -26,6 +26,19 @@ module Tailwind
         def resource_edit_url(resource)
           url_for controller: resource.model_name.plural, action: :edit, id: resource.id
         end
+
+        def after_resource_create_url(resource)
+          resource_url(resource)
+        end
+
+        def after_resource_update_url(resource)
+          resource_url(resource)
+        end
+
+        def after_resource_destroy_url
+          resource_list_url
+        end
+
       end
     end
   end

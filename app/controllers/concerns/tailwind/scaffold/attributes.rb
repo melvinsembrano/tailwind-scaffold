@@ -55,11 +55,36 @@ module Tailwind
 
         private
 
-        # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
         def form_field_for(attribute)
+          # if user defined method exists, use that
           custom_field_for_attribute = "form_field_for_#{attribute}".to_sym
           return send(custom_field_for_attribute) if respond_to?(custom_field_for_attribute)
 
+          # if attribute is a belongs_to association, use select
+          if attribute.to_s.ends_with?('_id') && resource.reflect_on_association(attribute.to_s.split('_id').first)&.belongs_to?
+            return belongs_to_select_form_field_for(attribute)
+          end
+
+          # if attribute is an enum, use select
+          return enum_select_form_field_for(attribute) if resource.defined_enums[attribute.to_s].present?
+
+          default_form_field_for(attribute)
+        end
+
+        def belongs_to_select_form_field_for(attribute)
+          collection = resource.reflect_on_association(attribute.to_s.split('_id').first).klass.all
+          collection = collection.map { |item| [item.name, item.id] }
+
+          { type: :select, collection:, options: { include_blank: true } }
+        end
+
+        def enum_select_form_field_for(attribute)
+          collection = resource.defined_enums[attribute.to_s].keys.map { |key| [key.humanize, key] }
+
+          { type: :select, collection:, options: { include_blank: true } }
+        end
+
+        def default_form_field_for(attribute)
           case resource.columns_hash[attribute.to_s].type
           when :string
             { type: :text_field }
@@ -77,9 +102,11 @@ module Tailwind
             { type: :text_field }
           end
         end
-        # rubocop:enable Metrics/MethodLength, Metrics/CyclomaticComplexity
+
       end
       # rubocop:enable Metrics/BlockLength
+
+
     end
   end
 end
