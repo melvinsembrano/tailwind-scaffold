@@ -7,6 +7,7 @@
   .tws__form {
     @apply p-3 sm:p-8 bg-white border border-gray-200 rounded shadow-sm sm:w-4/6 sm:mx-auto my-8;
   }
+
   .tws__form__panel {
   }
 
@@ -91,6 +92,35 @@
   .tws__table__cell__actions {
     @apply relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6;
   }
+
+  .tws__show {
+    @apply p-3 sm:p-8 bg-white border border-gray-200 rounded shadow-sm sm:w-4/6 sm:mx-auto my-8;
+  }
+
+  .tws__show__content {
+    @apply mt-6 border-t border-gray-100;
+  }
+
+  .tws__show__title {
+    @apply text-base font-semibold leading-7 text-gray-900;
+  }
+
+  .tws__show__content-divider {
+    @apply divide-y divide-gray-100;
+  }
+
+  .tws__show__content__row {
+    @apply px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0;
+  }
+
+  .tws__show__content__row__label {
+    @apply text-sm font-medium leading-6 text-gray-900;
+  }
+
+  .tw__show__content__row__value {
+    @apply mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0;
+  }
+
 }
 
 
