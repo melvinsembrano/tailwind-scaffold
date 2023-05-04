@@ -34,7 +34,7 @@ module Tailwind
         respond_to do |format|
           if @resource.save
             format.html do
-              redirect_to after_resource_create_url(resource), notice: "#{resource.name} was successfully created."
+              redirect_to after_resource_create_url(@resource), notice: "#{resource.name} was successfully created."
             end
             format.json { render :show, status: :created, location: @resource }
           else
@@ -49,7 +49,7 @@ module Tailwind
         respond_to do |format|
           if @resource.update(resource_params)
             format.html do
-              redirect_to after_resource_update_url(resource), notice: "#{resource.name} was successfully updated."
+              redirect_to after_resource_update_url(@resource), notice: "#{resource.name} was successfully updated."
             end
             format.json { render :show, status: :ok, location: @resource }
           else
