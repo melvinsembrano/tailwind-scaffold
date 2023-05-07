@@ -1,3 +1,4 @@
+<div class="tws__page">
 <%= render 'tailwind/scaffold/components/notice', notice: %>
 <div class="p-8">
   <%= tws_table_heading resource.name, new_path: resource_new_url %>
@@ -23,4 +24,5 @@
       <%= raw pagy_nav(@pagy) %>
     </div>
   </div>
+</div>
 </div>
