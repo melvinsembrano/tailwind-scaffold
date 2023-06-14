@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'pagy'
+
 module Tailwind
   module Scaffold
     module ApplicationHelper
