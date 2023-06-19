@@ -1,0 +1,24 @@
+
+.tws-admin .tws__page {
+  @apply sm:w-full bg-white border border-gray-100 shadow p-3;
+}
+
+.tws-admin .nav-item {
+  @apply flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold;
+}
+
+.tws-admin .nav-item.active {
+  @apply bg-gray-50 text-indigo-600;
+}
+
+.tws-admin .nav-item.default {
+  @apply text-gray-700 hover:text-indigo-600 hover:bg-gray-50;
+}
+
+.tws-admin .nav-item.active .icon {
+  @apply h-6 w-6 shrink-0 text-indigo-600;
+}
+
+.tws-admin .nav-item.default .icon {
+  @apply h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600;
+}

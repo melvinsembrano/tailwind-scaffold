@@ -9,6 +9,7 @@ module Tailwind
       include Tailwind::Scaffold::Attributes
       include Tailwind::Scaffold::Authorisation
       include Tailwind::Scaffold::UrlHelpers
+      include Tailwind::Scaffold::NavigationHelpers
 
       before_action :set_resource, only: %i[show edit update destroy]
       layout 'tailwind/scaffold/application'
