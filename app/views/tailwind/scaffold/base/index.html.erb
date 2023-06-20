@@ -1,6 +1,6 @@
 <div class="tws__page">
 <%= render 'tailwind/scaffold/components/notice', notice: %>
-<div class="p-8">
+<div class="">
   <%= tws_table_heading resource.name, new_path: resource_new_url %>
   <div class="mt-8 flow-root">
     <%= tws_table_panel do %>
@@ -11,10 +11,10 @@
             <%= tws_table_td format_cell_value(resource.send(k), options) %>
           <% end %>
           <%= tws_table_td_actions do %>
-            <%= link_to "Show", resource_url(resource), class: "text-indigo-600 hover:text-indigo-900 mr-5" %>
-            <%= link_to "Edit", resource_edit_url(resource), class: "text-indigo-600 hover:text-indigo-900 mr-5" %>
+            <%= link_to "Show", resource_url(resource), class: "primary mr-5" %>
+            <%= link_to "Edit", resource_edit_url(resource), class: "secondary mr-5" %>
             <div class="inline-block">
-              <%= button_to "Delete", resource_url(resource), method: :delete, data: { confirm: "Are you sure?" }, class: "text-red-500 hover:text-red-600" %>
+              <%= button_to "Delete", resource_url(resource), method: :delete, data: { confirm: "Are you sure?" }, class: "danger" %>
               </div>
           <% end %>
         <% end %>

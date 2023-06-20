@@ -1,6 +1,6 @@
 
 .tws-admin .tws__page {
-  @apply sm:w-full bg-white border border-gray-100 shadow p-3;
+  @apply sm:w-full bg-white border border-gray-100 shadow p-5;
 }
 
 .tws-admin .nav-item {
@@ -8,17 +8,17 @@
 }
 
 .tws-admin .nav-item.active {
-  @apply bg-gray-50 text-indigo-600;
+  @apply bg-tw-50 text-tw-500;
 }
 
 .tws-admin .nav-item.default {
-  @apply text-gray-700 hover:text-indigo-600 hover:bg-gray-50;
+  @apply text-tw-700 hover:text-tw-500 hover:bg-tw-50;
 }
 
 .tws-admin .nav-item.active .icon {
-  @apply h-6 w-6 shrink-0 text-indigo-600;
+  @apply h-6 w-6 shrink-0 text-tw-500;
 }
 
 .tws-admin .nav-item.default .icon {
-  @apply h-6 w-6 shrink-0 text-gray-400 group-hover:text-indigo-600;
+  @apply h-6 w-6 shrink-0 text-tw-400 group-hover:text-tw-500;
 }
