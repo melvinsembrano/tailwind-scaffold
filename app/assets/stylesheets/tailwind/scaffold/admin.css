@@ -1,6 +1,6 @@
 
 .tws-admin .tws__page {
-  @apply sm:w-full bg-white border border-gray-100 shadow p-5;
+  @apply sm:w-full bg-white border border-tw-100 shadow p-5;
 }
 
 .tws-admin .nav-item {

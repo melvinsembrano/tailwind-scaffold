@@ -9,7 +9,7 @@
   }
 
   .tws__form {
-    @apply p-3 sm:p-8 bg-white border border-gray-200 rounded shadow-sm my-8;
+    @apply p-3 sm:p-8 bg-white border border-tw-200 rounded shadow-sm my-8;
   }
 
   .tws__form__panel {
@@ -118,11 +118,11 @@
   }
 
   .tws__show {
-    @apply p-3 sm:p-8 bg-white border border-gray-200 rounded shadow-sm my-8;
+    @apply p-3 sm:p-8 bg-white border border-tw-200 rounded shadow-sm my-8;
   }
 
   .tws__show__content {
-    @apply mt-6 border-t border-gray-100;
+    @apply mt-6 border-t border-tw-100;
   }
 
   .tws__show__title {
