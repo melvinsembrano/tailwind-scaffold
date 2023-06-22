@@ -48,6 +48,9 @@ module Tailwind
             # if attribute is an enum, use select
             return enum_select_form_field_for(attribute) if resource.defined_enums[attribute.to_s].present?
 
+            # if attribute is has_many association, use association index
+            return resource_index_for(attribute) if resource_associations.include?(attribute)
+
             default_form_field_for(attribute)
           end
           # rubocop:enable Metrics/AbcSize

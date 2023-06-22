@@ -35,6 +35,15 @@ module Tailwind
         def resource_update_attributes
           resource_attributes.excluding(:id, :created_at, :updated_at)
         end
+
+        def resource_associations
+          @resource_associations ||= resource.reflect_on_all_associations.map(&:name)
+        end
+
+        def resource_index_for(attribute)
+          { type: :has_many, association: attribute }
+        end
+
       end
 
     end

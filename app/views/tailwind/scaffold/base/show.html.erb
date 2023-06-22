@@ -12,11 +12,8 @@
 
     <div class="tws__show__content">
       <dl class="tws__show__content-divider">
-      <% resource_show_attributes.each do |attr| %>
-        <div class="tws__show__content__row">
-          <dt class="tws__show__content__row__label"><%= attr.to_s.humanize %></dt>
-          <dd class="tws__show__content__row__value"><%= @resource.send attr %></dd>
-        </div>
+      <% show_for_attributes.each do |method, attributes| %>
+        <%= tws_show_for @resource, method, attributes %>
       <% end %>
       </dl>
     </div>

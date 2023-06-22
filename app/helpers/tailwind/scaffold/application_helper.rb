@@ -9,6 +9,7 @@ module Tailwind
       include AttributesHelper
       include FormHelper
       include TableHelper
+      include ShowHelper
 
     end
   end

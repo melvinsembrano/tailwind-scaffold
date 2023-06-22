@@ -1,4 +1,4 @@
 <div class="tws__show__content__row">
-  <dt class="tws__show__content__row__label"><%= label %></dt>
-  <dd class="tws__show__content__row__value"><%= value %></dd>
+  <dt class="tws__show__content__row__label"><%= method.to_s.humanize %></dt>
+  <dd class="tws__show__content__row__value"><%= tws_show resource.send(method), options %></dd>
 </div>

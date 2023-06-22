@@ -4,6 +4,8 @@
     <% form_fields(resource).each do |k,v| %>
       <% if v[:type] == :select %>
         <%= form.send "tws_#{v[:type]}", k, v[:collection], v[:options] %>
+      <% elsif v[:type] == :has_many %>
+        Has many associations here
       <% else %>
         <%= form.send "tws_#{v[:type]}", k %>
       <% end %>
