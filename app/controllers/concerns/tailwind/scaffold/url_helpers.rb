@@ -9,24 +9,24 @@ module Tailwind
         helper_method :resource_list_url,
                       :resource_new_url, :resource_url, :resource_edit_url
 
-        def resource_list_url
-          url_for controller: resource.model_name.plural, action: :index
+        def resource_list_url(params = {})
+          url_for controller: resource.model_name.plural, action: :index, **params
         end
 
-        def resource_new_url
-          url_for controller: resource.model_name.plural, action: :new
+        def resource_new_url(params = {})
+          url_for controller: resource.model_name.plural, action: :new, **params
         end
 
-        def resource_url(resource)
+        def resource_url(resource, params = {})
           if resource.persisted?
-            url_for controller: resource.model_name.plural, action: :show, id: resource.id
+            url_for controller: resource.model_name.plural, action: :show, id: resource.id, **params
           else
-            url_for controller: resource.model_name.plural, action: :index
+            url_for controller: resource.model_name.plural, action: :index, **params
           end
         end
 
-        def resource_edit_url(resource)
-          url_for controller: resource.model_name.plural, action: :edit, id: resource.id
+        def resource_edit_url(resource, params = {})
+          url_for controller: resource.model_name.plural, action: :edit, id: resource.id, **params
         end
 
         def after_resource_create_url(resource)

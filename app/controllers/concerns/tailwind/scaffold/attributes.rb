@@ -12,7 +12,7 @@ module Tailwind
         include Tailwind::Scaffold::Attributes::Show
 
         helper_method :resource_attributes,
-          :index_attributes
+          :index_attributes, :resource_route_param
 
         def resource_attributes
           resource.attribute_names.map(&:to_sym)
@@ -41,7 +41,15 @@ module Tailwind
         end
 
         def resource_index_for(attribute)
-          { type: :has_many, association: attribute }
+          namespace = self.class.name.split('::')
+          namespace.pop
+          namespace.push "#{attribute.to_s.classify.pluralize}Controller"
+          controller = namespace.join('::').constantize
+          { type: :has_many, association: attribute, controller: }
+        end
+
+        def resource_route_param(object)
+          { "#{resource.name.underscore}_id": object.id }
         end
 
       end

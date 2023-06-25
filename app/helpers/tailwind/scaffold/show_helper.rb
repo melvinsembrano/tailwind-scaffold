@@ -5,17 +5,26 @@ module Tailwind
     module ShowHelper
 
       def tws_show_for(resource, method, options = {})
-        render partial: 'tailwind/scaffold/base/show/content_row', locals: { method:, resource:, options: }
+        partial_name = case options[:type]
+                       when :has_many
+                         'has_many_row'
+                       else
+                         'content_row'
+                       end
+
+        render partial: "tailwind/scaffold/base/show/#{partial_name}", locals: { method:, resource:, options: }
       end
 
       def tws_show(value, options = {})
         case options[:type]
         when :humanize, :enum
           value.humanize
+        when :raw
+          raw(value)
         when :date
-          value.strftime('%d/%m/%Y')
+          I18n.l(value, format: :default)
         when :datetime
-          value.strftime('%d/%m/%Y %H:%M')
+          I18n.l(value, format: :long)
         when :boolean
           value ? 'Yes' : 'No'
         when :integer

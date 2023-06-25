@@ -1,0 +1,23 @@
+<% assoc_controller = options[:controller].new; assoc_controller.request = request %>
+<div class="pt-5">
+  <div class=""><%= method.to_s.humanize %></div>
+  <div class="mt-8 flow-root">
+    <%= tws_table_panel do %>
+      <%= tws_table do %>
+        <%= tws_table_header assoc_controller.index_attributes %>
+        <%= tws_table_body resource.send(method) do |assoc| %>
+          <% assoc_controller.index_attributes.each do |k, options| %>
+            <%= tws_table_td format_cell_value(assoc.send(k), options) %>
+          <% end %>
+          <%= tws_table_td_actions do %>
+            <%= link_to "Show", assoc_controller.resource_url(assoc, resource_route_param(resource)), class: "primary mr-5" %>
+            <%= link_to "Edit", assoc_controller.resource_edit_url(assoc, resource_route_param(resource)), class: "secondary mr-5" %>
+            <div class="inline-block">
+              <%= button_to "Delete", assoc_controller.resource_url(assoc, resource_route_param(resource)), method: :delete, data: { confirm: "Are you sure?" }, class: "danger" %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
