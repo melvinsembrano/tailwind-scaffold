@@ -27,4 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'pagy', '>= 6.0.3'
   spec.add_dependency 'rails', '>= 7.0.4.3'
   spec.add_dependency 'rails-i18n', '~> 7.0'
+
+  spec.add_development_dependency 'mocktail', '~> 1.2.2'
 end

@@ -11,6 +11,7 @@ module Tailwind
       include Tailwind::Scaffold::UrlHelpers
       include Tailwind::Scaffold::NavigationHelpers
 
+      before_action :set_parent
       before_action :set_resource, only: %i[show edit update destroy]
       layout 'tailwind/scaffold/application'
 
@@ -69,7 +70,7 @@ module Tailwind
         end
       end
 
-      helper_method :resource, :title
+      helper_method :resource, :title, :breadcrumb
 
       def resource
         raise NotImplementedError
@@ -79,15 +80,35 @@ module Tailwind
         resource.model_name.human.pluralize
       end
 
+      def breadcrumb
+        @breadcrumb ||= Tailwind::Scaffold::Breadcrumb.new(self)
+      end
+
       private
 
+      def set_parent
+        @parent = parent
+      end
+
+      def parent
+        nil
+      end
+
       def scope
-        resource.all
+        if @parent
+          @parent.send(resource.model_name.plural.to_sym)
+        else
+          resource.all
+        end
       end
 
       # Use callbacks to share common setup or constraints between actions.
       def set_resource
-        @resource = resource.find(params[:id])
+        @resource = if @parent
+                      scope.find(params[:id])
+                    else
+                      resource.find(params[:id])
+                    end
       end
 
       # Only allow a list of trusted parameters through.

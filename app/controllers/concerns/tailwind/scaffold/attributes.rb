@@ -40,11 +40,16 @@ module Tailwind
           @resource_associations ||= resource.reflect_on_all_associations.map(&:name)
         end
 
-        def resource_index_for(attribute)
-          namespace = self.class.name.split('::')
+        def resource_controller(base_controller, resource)
+          namespace = base_controller.name.split('::')
           namespace.pop
-          namespace.push "#{attribute.to_s.classify.pluralize}Controller"
-          controller = namespace.join('::').constantize
+          namespace.push "#{resource.model_name.plural.camelcase}Controller"
+          namespace.join('::').constantize
+        end
+
+        def resource_index_for(attribute)
+          controller = resource_controller(self.class, resource.reflect_on_association(attribute).klass)
+
           { type: :has_many, association: attribute, controller: }
         end
 

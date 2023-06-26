@@ -19,7 +19,7 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
       post authors_url, params: { author: { name: 'Test Author' } }
     end
 
-    assert_redirected_to authors_url
+    assert_redirected_to author_url(Author.last)
   end
 
   test 'should show author' do
@@ -34,7 +34,7 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update author' do
     patch author_url(authors(:one)), params: { author: { name: 'Test Author' } }
-    assert_redirected_to authors_url
+    assert_redirected_to author_url(authors(:one))
   end
 
   test 'should destroy author' do

@@ -95,6 +95,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.18.0)
+    mocktail (1.2.2)
     net-imap (0.3.4)
       date
       net-protocol
@@ -163,6 +164,7 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  mocktail (~> 1.2.2)
   sprockets-rails
   sqlite3
   tailwind-scaffold!
