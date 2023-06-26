@@ -2,7 +2,7 @@ require 'test_helper'
 
 module Tailwind
   module Scaffold
-    class UrlHelpersTest < ActionDispatch::IntegrationTest
+    class UrlHelpersTest < ActiveSupport::TestCase
 
       def request
         @request ||= ActionDispatch::TestRequest.create
@@ -93,7 +93,6 @@ module Tailwind
       end
 
       test 'after_resource_destroy_url' do
-        author = authors(:one)
         assert_equal 'http://test.host/authors', author_controller.after_resource_destroy_url
       end
 

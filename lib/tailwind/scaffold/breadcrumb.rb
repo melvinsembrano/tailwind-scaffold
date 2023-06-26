@@ -12,7 +12,7 @@ module Tailwind
 
       def crumbs
         crumbs = []
-        # crumbs << parent_crumb if @parent
+        crumbs << parent_crumb if @parent
         crumbs << resource_index_crumb
         crumbs << resource_crumb if @resource
         crumbs.flatten
@@ -34,7 +34,10 @@ module Tailwind
 
       def parent_crumb
         parent_controller = @controller.resource_controller(@controller.class, @parent.class).new
-        Breadcrumb.new(parent_controller).resource_crumb
+        parent_controller.request = @controller.request
+        parent_controller.instance_variable_set('@resource', @parent)
+
+        Breadcrumb.new(parent_controller).crumbs
       end
 
       def parent_route_param
