@@ -1,6 +1,6 @@
 <% assoc_controller = options[:controller].new; assoc_controller.request = request %>
 <div class="pt-5">
-  <div class=""><%= method.to_s.humanize %></div>
+  <%= tws_assoc_table_heading method.to_s, new_path: assoc_controller.resource_new_url(resource_route_param(resource)) %>
   <div class="mt-8 flow-root">
     <%= tws_table_panel do %>
       <%= tws_table do %>

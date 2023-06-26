@@ -18,16 +18,29 @@ module Tailwind
         HTML
       end
 
-      def tws_table_panel(&block)
+      def tws_assoc_table_heading(title, options = {})
+        raw <<-HTML
+        <div class="sm:flex sm:items-center">
+          <div class="sm:flex-auto">
+            <h1 class="tws__table__title">#{title.titleize}</h1>
+          </div>
+          <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+            #{link_to "Add #{title.singularize}", options[:new_path], class: 'tws__table__button'}
+          </div>
+        </div>
+        HTML
+      end
+
+      def tws_table_panel(&)
         content_tag(:div, class: 'tws__table__panel') do
           content_tag(:div, class: 'tws__table__panel_a') do
-            content_tag(:div, class: 'tws__table__panel_b', &block)
+            content_tag(:div, class: 'tws__table__panel_b', &)
           end
         end
       end
 
-      def tws_table(options = {}, &block)
-        content_tag(:table, options.merge(class: 'tws__table'), &block)
+      def tws_table(options = {}, &)
+        content_tag(:table, options.merge(class: 'tws__table'), &)
       end
 
       def tws_table_header(attributes)
