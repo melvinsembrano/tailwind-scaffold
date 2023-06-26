@@ -29,16 +29,16 @@ module Tailwind
           url_for controller: resource.model_name.plural, action: :edit, id: resource.id, **params
         end
 
-        def after_resource_create_url(resource)
-          resource_url(resource)
+        def after_resource_create_url(resource, params = {})
+          resource_url(resource, params)
         end
 
-        def after_resource_update_url(resource)
-          resource_url(resource)
+        def after_resource_update_url(resource, params = {})
+          resource_url(resource, params)
         end
 
-        def after_resource_destroy_url
-          resource_list_url
+        def after_resource_destroy_url(params = {})
+          resource_list_url(params)
         end
 
       end

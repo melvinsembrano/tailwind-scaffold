@@ -7,4 +7,11 @@ class BooksController < Tailwind::Scaffold::BaseController
   def resource
     Book
   end
+
+  private
+
+  def parent
+    Author.find(params[:author_id])
+  end
+
 end

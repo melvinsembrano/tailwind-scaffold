@@ -9,6 +9,7 @@ ActiveRecord::Migrator.migrations_paths << File.expand_path('../db/migrate', __d
 
 require 'rails/test_help'
 require 'mocktail'
+require 'debug'
 
 # Load fixtures from the engine
 if ActiveSupport::TestCase.respond_to?(:fixture_path=)
