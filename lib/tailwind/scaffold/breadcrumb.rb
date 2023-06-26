@@ -26,10 +26,17 @@ module Tailwind
       end
 
       def resource_crumb
-        {
-          name: @controller.show_title(@resource),
-          url: @controller.resource_url(@resource, parent_route_param)
-        }
+        if @resource.persisted?
+          {
+            name: @controller.show_title(@resource),
+            url: @controller.resource_url(@resource, parent_route_param)
+          }
+        else
+          {
+            name: 'New',
+            url: @controller.resource_new_url(parent_route_param)
+          }
+        end
       end
 
       def parent_crumb

@@ -48,6 +48,18 @@ module Tailwind
         )
       end
 
+      test 'crumb with new resource' do
+        author_controller.instance_variable_set('@resource', Author.new)
+        breadcrumb = Breadcrumb.new(author_controller)
+        assert_equal(
+          [
+            { name: 'Authors', url: 'http://test.host/authors' },
+            { name: 'New', url: 'http://test.host/authors/new' }
+          ],
+          breadcrumb.crumbs
+        )
+      end
+
       test 'crumbs with parent' do
         book = books(:one)
         book_controller.instance_variable_set('@parent', book.author)

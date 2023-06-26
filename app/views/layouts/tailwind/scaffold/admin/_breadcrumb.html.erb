@@ -1,3 +1,29 @@
-Breadcrumb here
-<br>
-<%= breadcrumb.crumbs.inspect %>
+
+<div class="mb-3">
+  <nav class="flex" aria-label="Breadcrumb">
+    <ol role="list" class="flex w-full max-w-screen-xl space-x-4 rounded-sm bg-white px-6 py-4 shadow">
+      <li class="flex">
+        <div class="flex items-center">
+          <a href="#" class="text-tw-300 hover:text-tw-500">
+            <svg class="h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">Home</span>
+          </a>
+        </div>
+      </li>
+      <% breadcrumb.crumbs.each do |crumb| %>
+        <li class="flex">
+          <div class="flex items-center">
+            <svg class="h-5 w-5 flex-shrink-0 text-tw-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+            </svg>
+            <%= link_to crumb[:name], crumb[:url], class: "ml-4 text-sm font-medium text-tw-300 hover:text-tws-700" %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </nav>
+
+</div>
+<%#= breadcrumb.crumbs.inspect %>
