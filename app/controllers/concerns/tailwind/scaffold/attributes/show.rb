@@ -15,7 +15,7 @@ module Tailwind
           end
 
           def show_title(resource)
-            resource.respond_to?(:name) ? resource.name : "##{resource.class.name} ##{resource.id}"
+            resource.respond_to?(:name) ? resource.name : "#{resource.class.name} (#{resource.id})"
           end
 
           def show_for_attributes
