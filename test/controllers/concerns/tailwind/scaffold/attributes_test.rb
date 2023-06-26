@@ -5,14 +5,9 @@ require 'test_helper'
 module Tailwind
   module Scaffold
     class AttributesTest < ActiveSupport::TestCase
-      include Mocktail::DSL
 
       setup do
         @controller = AuthorsController.new
-      end
-
-      teardown do
-        Mocktail.reset
       end
 
       test 'default resource_attributes' do

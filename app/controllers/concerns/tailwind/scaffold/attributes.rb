@@ -7,6 +7,7 @@ module Tailwind
     module Attributes
       extend ActiveSupport::Concern
 
+      # rubocop:disable Metrics/BlockLength
       included do
         include Tailwind::Scaffold::Attributes::Form
         include Tailwind::Scaffold::Attributes::Show
@@ -58,6 +59,7 @@ module Tailwind
         end
 
       end
+      # rubocop:enable Metrics/BlockLength
 
     end
   end
