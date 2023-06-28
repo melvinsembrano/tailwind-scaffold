@@ -41,6 +41,12 @@ module Tailwind
           resource_list_url(params)
         end
 
+        helper_method :resource_back_url
+
+        def resource_back_url
+          resource_list_url
+        end
+
       end
     end
   end
