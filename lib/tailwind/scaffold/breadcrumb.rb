@@ -49,9 +49,7 @@ module Tailwind
 
       def parent_route_param
         if @parent
-          {
-            "#{@parent.class.model_name.param_key.to_sym}_id" => @parent.id
-          }
+          { "#{@parent.class.model_name.param_key.to_sym}_id" => @parent.id }
         else
           {}
         end
