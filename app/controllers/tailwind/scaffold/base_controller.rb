@@ -10,6 +10,7 @@ module Tailwind
       include Tailwind::Scaffold::Authorisation
       include Tailwind::Scaffold::UrlHelpers
       include Tailwind::Scaffold::NavigationHelpers
+      include Tailwind::Scaffold::UserHelpers
 
       before_action :set_parent
       before_action :set_resource, only: %i[show edit update destroy]

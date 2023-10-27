@@ -18,7 +18,7 @@ module Tailwind
       def tws_show(value, options = {})
         case options[:type]
         when :humanize, :enum
-          value.humanize
+          value&.humanize
         when :raw
           raw(value)
         when :date
@@ -30,7 +30,8 @@ module Tailwind
         when :integer
           number_with_delimiter(value)
         else
-          "#{value} #{options}"
+          # "#{value} #{options}"
+          value
         end
       end
     end

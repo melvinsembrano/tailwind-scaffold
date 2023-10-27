@@ -6,7 +6,7 @@ module Tailwind
       extend ActiveSupport::Concern
 
       included do
-        helper_method :navigations, :navigation_active?
+        helper_method :navigations, :navigation_active?, :app_logo
 
         def navigations
           [
@@ -16,6 +16,10 @@ module Tailwind
 
         def navigation_active?(navigation)
           navigation[:current].present? ? navigation[:current].call : current_page?(navigation[:url])
+        end
+
+        def app_logo
+          'https://tailwindui.com/img/logos/mark.svg?color=tw&shade=600'
         end
 
       end
