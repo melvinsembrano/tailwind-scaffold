@@ -4,8 +4,12 @@ module Tailwind
   module Scaffold
     module AttributesHelper
 
-      def format_header_title(value, _options = {})
-        value.to_s.humanize
+      def format_header_title(value, options = {})
+        if options[:sortable]
+          link_to value.to_s.humanize, "#sort=#{options[:sort]}", class: 'underline'
+        else
+          value.to_s.humanize
+        end
       end
 
       def format_cell_value(value, options = {})

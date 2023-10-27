@@ -25,7 +25,11 @@ module Tailwind
 
         def index_attributes
           resource_index_attributes.each_with_object({}) do |attribute, hash|
-            hash[attribute] = { type: resource.columns_hash[attribute.to_s]&.type || :string }
+            hash[attribute] = {
+              type: resource.columns_hash[attribute.to_s]&.type || :string,
+              sortable: resource.columns_hash[attribute.to_s].present?,
+              sort: attribute
+            }
           end
         end
 
