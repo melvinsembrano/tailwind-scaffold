@@ -69,7 +69,7 @@ module Tailwind
           end
 
           def default_form_field_for(attribute)
-            case resource.columns_hash[attribute.to_s].type
+            case resource.columns_hash[attribute.to_s]&.type
             when :string
               { type: :text_field }
             when :text

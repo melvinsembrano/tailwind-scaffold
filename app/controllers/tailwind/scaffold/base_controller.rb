@@ -96,10 +96,20 @@ module Tailwind
       end
 
       def scope
-        if @parent
-          @parent.send(resource.model_name.plural.to_sym)
+        items = if @parent
+                  @parent.send(resource.model_name.plural.to_sym)
+                else
+                  resource.all
+                end
+
+        search(items)
+      end
+
+      def search(scope)
+        if params[:q].present?
+          scope.search(params[:q])
         else
-          resource.all
+          scope
         end
       end
 

@@ -1,7 +1,7 @@
 <div class="tws__page">
 <%= render 'tailwind/scaffold/components/notice', notice: %>
 <div class="">
-  <%= tws_table_heading resource.name, new_path: resource_new_url %>
+  <%= tws_table_heading resource.name, new_path: resource_new_url, q: params[:q] %>
   <div class="mt-8 flow-root">
     <%= tws_table_panel do %>
       <%= tws_table do %>

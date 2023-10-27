@@ -28,7 +28,8 @@ module Tailwind
         when :boolean
           value ? 'Yes' : 'No'
         when :integer
-          number_with_delimiter(value)
+          # number_with_delimiter(value)
+          value
         else
           # "#{value} #{options}"
           value

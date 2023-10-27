@@ -3,13 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-
   .tws__page {
-    @apply sm:w-4/6 sm:mx-auto p-5;
+    @apply p-5 sm:mx-auto sm:w-4/6;
   }
 
   .tws__form {
-    @apply p-3 sm:p-8 bg-white border border-tw-200 rounded shadow-sm my-8;
+    @apply border-tw-200 my-8 rounded border bg-white p-3 shadow-sm sm:p-8;
   }
 
   .tws__form__panel {
@@ -24,11 +23,11 @@
   }
 
   .tws__form__submit_button {
-    @apply rounded-md bg-tw-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-tw-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tw-600;
+    @apply bg-tw-500 hover:bg-tw-400 focus-visible:outline-tw-600 rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
   }
 
   .tws__form__cancel_button {
-    @apply text-sm font-semibold leading-6 text-tw-900;
+    @apply text-tw-900 text-sm font-semibold leading-6;
   }
 
   .tws__form__text_field,
@@ -39,7 +38,7 @@
   .tws__form__datetime_field,
   .tws__form__date_field,
   .tws__form__text_area {
-    @apply block w-full rounded-md border-0 py-1.5 text-tw-900 shadow-sm ring-1 ring-inset ring-tw-100 placeholder:text-tw-400 focus:ring-2 focus:ring-inset focus:ring-tw-300 sm:text-sm sm:leading-6;
+    @apply text-tw-900 ring-tw-100 placeholder:text-tw-400 focus:ring-tw-300 block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6;
   }
 
   .tws__form__input--error {
@@ -47,11 +46,11 @@
   }
 
   .tws__form__title {
-    @apply text-2xl font-medium leading-6 text-tw-700;
+    @apply text-tw-700 text-2xl font-medium leading-6;
   }
 
   .tws__form__error {
-    @apply mt-2 text-sm text-red-600
+    @apply mt-2 text-sm text-red-600;
   }
 
   .tws__table__panel {
@@ -59,11 +58,11 @@
   }
 
   .tws__table__title {
-    @apply text-base font-semibold leading-6 text-tw-500;
+    @apply text-tw-500 text-base font-semibold leading-6;
   }
 
   .tws__table_description {
-    @apply mt-2 text-sm text-tw-300;
+    @apply text-tw-300 mt-2 text-sm;
   }
 
   .tws__table__panel_a {
@@ -83,7 +82,7 @@
   }
 
   .tws__table__header__cell {
-    @apply px-3 py-3.5 text-left text-sm font-semibold text-tw-900;
+    @apply text-tw-900 px-3 py-3.5 text-left text-sm font-semibold;
   }
   .tws__table__header__cell__actions {
     @apply relative py-3.5 pl-3 pr-4 sm:pr-6;
@@ -94,11 +93,11 @@
   }
 
   .tws__table__cell {
-    @apply whitespace-nowrap px-3 py-4 text-sm text-tw-500;
+    @apply text-tw-500 whitespace-nowrap px-3 py-4 text-sm;
   }
 
   .tws__table__button {
-    @apply block rounded-md bg-tw-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-tw-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tw-600;
+    @apply bg-tw-500 hover:bg-tw-400 focus-visible:outline-tw-600 block rounded-md px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
   }
 
   .tws__table__cell__actions {
@@ -114,19 +113,19 @@
   }
 
   .tws__table__cell__actions .danger {
-    @apply text-red-500 hover:text-red-600 hover:font-semibold;
+    @apply text-red-500 hover:font-semibold hover:text-red-600;
   }
 
   .tws__show {
-    @apply p-3 sm:p-8 bg-white border border-tw-200 rounded shadow-sm my-8;
+    @apply border-tw-200 my-8 rounded border bg-white p-3 shadow-sm sm:p-8;
   }
 
   .tws__show__content {
-    @apply mt-6 border-t border-tw-100;
+    @apply border-tw-100 mt-6 border-t;
   }
 
   .tws__show__title {
-    @apply text-base font-semibold leading-7 text-tw-900;
+    @apply text-tw-900 text-base font-semibold leading-7;
   }
 
   .tws__show__content-divider {
@@ -138,15 +137,13 @@
   }
 
   .tws__show__content__row__label {
-    @apply text-sm font-medium leading-6 text-tw-900;
+    @apply text-tw-900 text-sm font-medium leading-6;
   }
 
   .tw__show__content__row__value {
-    @apply mt-1 text-sm leading-6 text-tw-700 sm:col-span-2 sm:mt-0;
+    @apply text-tw-700 mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0;
   }
-
 }
-
 
 .pagy-nav,
 .pagy-nav-js {
@@ -161,11 +158,11 @@
 .pagy-nav-js .page.active,
 .pagy-nav-js .page.prev.disabled,
 .pagy-nav-js .page.next.disabled {
-  @apply block rounded px-3 py-1 text-sm text-tw-500 font-semibold bg-tw-200 shadow-md;
-  &:hover{
+  @apply text-tw-500 bg-tw-200 block rounded px-3 py-1 text-sm font-semibold shadow-md;
+  &:hover {
     @apply bg-tw-300;
   }
-  &:active{
+  &:active {
     @apply bg-tw-400 text-white;
   }
 }
@@ -185,22 +182,21 @@
 
 .pagy-nav .page.active,
 .pagy-nav-js .page.active {
-  @apply text-white cursor-default bg-tw-400;
+  @apply bg-tw-400 cursor-default text-white;
   &:hover {
-    @apply text-white bg-tw-400;
+    @apply bg-tw-400 text-white;
   }
   &:active {
     @apply bg-tw-400 text-white;
   }
 }
 
-
 .pagy-combo-nav-js {
-  @apply flex max-w-max rounded-full px-3 py-1 text-sm text-tw-500 font-semibold bg-tw-200 shadow-md;
+  @apply text-tw-500 bg-tw-200 flex max-w-max rounded-full px-3 py-1 text-sm font-semibold shadow-md;
 }
 
 .pagy-combo-nav-js .pagy-combo-input {
-  @apply bg-white px-2 rounded-sm
+  @apply rounded-sm bg-white px-2;
 }
 
 .pagy-combo-nav-js .page.prev,

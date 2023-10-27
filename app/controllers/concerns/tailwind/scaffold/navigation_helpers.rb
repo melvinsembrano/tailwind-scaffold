@@ -10,7 +10,19 @@ module Tailwind
 
         def navigations
           [
-            { name: 'Dashboard', url: '/admin/dashboard', icon: 'layouts/tailwind/scaffold/admin/icons/dashboard' }
+            {
+              title: nil,
+              items: [
+                { name: 'Dashboard', url: '/admin/dashboard', icon: 'layouts/tailwind/scaffold/admin/icons/dashboard' }
+              ]
+            },
+            {
+              title: 'Settings',
+              items: [
+                { name: 'App configs', url: '/admin/dashboard',
+                  icon: 'layouts/tailwind/scaffold/admin/icons/default' }
+              ]
+            }
           ]
         end
 

@@ -11,7 +11,21 @@ module Tailwind
             <h1 class="tws__table__title">#{title}</h1>
             <p class="tws__table_description">#{options[:description]}</p>
           </div>
-          <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+          <div>
+            <form class="flex">
+
+              <label for="search" class="sr-only">Search</label>
+              <div class="relative text-gray-400 focus-within:text-gray-600">
+                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <input name="q" value="#{options[:q]}" class="block w-full rounded-md border-1 border-tw-300 bg-white py-1 pl-10 pr-3 text-gray-900 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-tw-600 sm:text-sm sm:leading-6" placeholder="Search" type="search" name="search">
+              </div>
+            </form>
+          </div>
+          <div class="mt-4 sm:ml-3 sm:mt-0 sm:flex-none">
             #{link_to "Add #{title.singularize}", options[:new_path], class: 'tws__table__button'}
           </div>
         </div>

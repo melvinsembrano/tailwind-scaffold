@@ -5,35 +5,27 @@
     </div>
     <nav class="flex flex-1 flex-col">
       <ul role="list" class="flex flex-1 flex-col gap-y-7">
-        <li>
-          <ul role="list" class="-mx-2 space-y-1">
-          <% navigations.each do |navigation| %>
-            <li>
-              <%= link_to navigation[:url], class: "group nav-item #{ current_page?(navigation[:url]) ? 'active' : 'default' }" do %>
-                <% if navigation[:icon].present? %>
-                  <%= render navigation[:icon], style: "icon" %>
-                <% else %>
-                  <%= render "layouts/tailwind/scaffold/admin/icons/default", style: "icon" %>
-                <% end %>
-                <%= navigation[:name] %>
+        <% navigations.each do |nav| %>
+          <li>
+            <% if nav[:title] %>
+              <div class="text-xs font-semibold leading-6 text-tw-400"><%= nav[:title] %></div>
+            <% end %>
+            <ul role="list" class="-mx-2 mt-2 space-y-1">
+              <% nav[:items].each do |navigation| %>
+                <li>
+                  <%= link_to navigation[:url], class: "group nav-item #{ current_page?(navigation[:url]) ? 'active' : 'default' }" do %>
+                    <% if navigation[:icon].present? %>
+                      <%= render navigation[:icon], style: "icon" %>
+                    <% else %>
+                      <%= render "layouts/tailwind/scaffold/admin/icons/default", style: "icon" %>
+                    <% end %>
+                    <%= navigation[:name] %>
+                  <% end %>
+                </li>
               <% end %>
-            </li>
-          <% end %>
-          </ul>
-        </li>
-
-        <!-- <li>
-          <div class="text-xs font-semibold leading-6 text-tw-400">Settings</div>
-          <ul role="list" class="-mx-2 mt-2 space-y-1">
-            <li>
-              <a href="#" class="text-tw-700 hover:text-tw-500 hover:bg-tw-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-                <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white text-tw-400 border-tw-200 group-hover:border-tw-600 group-hover:text-tw-500">A</span>
-                <span class="truncate">App configs</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        -->
+            </ul>
+          </li>
+        <% end %>
 
         <li class="-mx-6 mt-auto">
           <a href="#" class="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-tw-900 hover:bg-tw-50">

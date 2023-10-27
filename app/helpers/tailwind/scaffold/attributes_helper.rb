@@ -4,7 +4,7 @@ module Tailwind
   module Scaffold
     module AttributesHelper
 
-      def format_header_title(value, options = {})
+      def format_header_title(value, _options = {})
         value.to_s.humanize
       end
 
@@ -19,11 +19,12 @@ module Tailwind
         when :boolean
           value ? 'Yes' : 'No'
         when :datetime, :date, :time
-          I18n.l(value, format: :long)
+          I18n.l(value, format: :short)
         when :text
           truncate(value, length: 50)
         when :integer
-          number_with_delimiter(value)
+          # number_with_delimiter(value)
+          value
         else
           value
         end
