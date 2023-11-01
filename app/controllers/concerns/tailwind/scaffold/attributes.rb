@@ -48,7 +48,7 @@ module Tailwind
         def resource_controller(base_controller, resource)
           namespace = base_controller.name.split('::')
           namespace.pop
-          namespace.push "#{resource.model_name.plural.camelcase}Controller"
+          namespace.push "#{resource.model_name.element.pluralize.camelize}Controller"
           namespace.join('::').constantize
         end
 
@@ -59,7 +59,7 @@ module Tailwind
         end
 
         def resource_route_param(object)
-          { "#{resource.name.underscore}_id": object.id }
+          { "#{resource_name.underscore}_id": object.id }
         end
 
       end

@@ -30,14 +30,13 @@ module Tailwind
       def edit
       end
 
-      # rubocop:disable Metrics/AbcSize
       def create
         @resource = scope.new(resource_params)
 
         respond_to do |format|
           if @resource.save
             format.html do
-              redirect_to after_resource_create_url(@resource), notice: "#{resource.name} was successfully created."
+              redirect_to after_resource_create_url(@resource), notice: "#{resource_name} was successfully created."
             end
             format.json { render :show, status: :created, location: @resource }
           else
@@ -46,13 +45,12 @@ module Tailwind
           end
         end
       end
-      # rubocop:enable Metrics/AbcSize
 
       def update
         respond_to do |format|
           if @resource.update(resource_params)
             format.html do
-              redirect_to after_resource_update_url(@resource), notice: "#{resource.name} was successfully updated."
+              redirect_to after_resource_update_url(@resource), notice: "#{resource_name} was successfully updated."
             end
             format.json { render :show, status: :ok, location: @resource }
           else
@@ -66,15 +64,19 @@ module Tailwind
         @resource.destroy
 
         respond_to do |format|
-          format.html { redirect_to after_resource_destroy_url, notice: "#{resource.name} was successfully destroyed." }
+          format.html { redirect_to after_resource_destroy_url, notice: "#{resource_name} was successfully destroyed." }
           format.json { head :no_content }
         end
       end
 
-      helper_method :resource, :title, :breadcrumb
+      helper_method :resource, :resource_name, :title, :breadcrumb
 
       def resource
         raise NotImplementedError
+      end
+
+      def resource_name
+        resource.model_name.name.human
       end
 
       def title
@@ -97,7 +99,7 @@ module Tailwind
 
       def scope
         items = if @parent
-                  @parent.send(resource.model_name.plural.to_sym)
+                  @parent.send(resource_name.plural.to_sym)
                 else
                   resource.all
                 end
