@@ -69,14 +69,14 @@ module Tailwind
         end
       end
 
-      helper_method :resource, :resource_name, :title, :breadcrumb
+      helper_method :resource, :resource_name, :title, :breadcrumb, :allowed_actions
 
       def resource
         raise NotImplementedError
       end
 
       def resource_name
-        resource.model_name.name.human
+        resource.model_name.name
       end
 
       def title
@@ -85,6 +85,16 @@ module Tailwind
 
       def breadcrumb
         @breadcrumb ||= Tailwind::Scaffold::Breadcrumb.new(self)
+      end
+
+      def allowed_actions
+        {
+          add: true,
+          edit: true,
+          delete: true,
+          show: true,
+          index: true
+        }
       end
 
       private

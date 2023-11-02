@@ -11,11 +11,26 @@
             <%= tws_table_td format_cell_value(resource.send(k), options) %>
           <% end %>
           <%= tws_table_td_actions do %>
-            <%= link_to "Show", resource_url(resource), class: "primary mr-5" %>
-            <%= link_to "Edit", resource_edit_url(resource), class: "secondary mr-5" %>
-            <div class="inline-block">
-              <%= button_to "Delete", resource_url(resource), method: :delete, data: { confirm: "Are you sure?" }, class: "danger" %>
+            <% if allowed_actions[:show] %>
+              <%= link_to resource_url(resource), class: "primary flex flex-col" do %>
+                <%= render "layouts/tailwind/scaffold/admin/icons/show", style: "h-5 h-5" %>
+                <div class="text-xs">show</div>
+              <% end %>
+            <% end %>
+            <% if allowed_actions[:edit] %>
+              <%= link_to resource_edit_url(resource), class: "secondary flex flex-col items-center" do %>
+                <%= render "layouts/tailwind/scaffold/admin/icons/edit", style: "h-5 h-5" %>
+                <div class="text-xs">edit</div>
+              <% end %>
+            <% end %>
+            <% if allowed_actions[:delete] %>
+              <div class="inline-block">
+                <%= button_to resource_url(resource), method: :delete, data: { confirm: "Are you sure?" }, class: "dange flex flex-col" do %>
+                  <%= render "layouts/tailwind/scaffold/admin/icons/delete", style: "h-5 h-5" %>
+                  <div class="text-xs">delete</div>
+                <% end %>
               </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>

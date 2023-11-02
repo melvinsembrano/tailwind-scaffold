@@ -26,7 +26,9 @@ module Tailwind
             </form>
           </div>
           <div class="mt-4 sm:ml-3 sm:mt-0 sm:flex-none">
-            #{link_to "Add #{title.singularize}", options[:new_path], class: 'tws__table__button'}
+            #{if allowed_actions[:add]
+                link_to("Add #{title.singularize}", options[:new_path], class: 'tws__table__button')
+              end}
           </div>
         </div>
         HTML
@@ -89,7 +91,7 @@ module Tailwind
       end
 
       def tws_table_td_actions(&block)
-        content_tag(:td, class: 'tws__table__cell__actions') do
+        content_tag(:td, class: 'tws__table__cell__actions flex gap-x-4') do
           block.call
         end
       end

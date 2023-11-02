@@ -24,11 +24,8 @@ module Tailwind
           value ? 'Yes' : 'No'
         when :datetime, :date, :time
           I18n.l(value, format: :short)
-        when :text
+        when :text, :string
           truncate(value, length: 50)
-        when :integer
-          # number_with_delimiter(value)
-          value
         else
           value
         end
