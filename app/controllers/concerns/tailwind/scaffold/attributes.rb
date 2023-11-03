@@ -25,12 +25,23 @@ module Tailwind
 
         def index_attributes
           resource_index_attributes.each_with_object({}) do |attribute, hash|
+            custom_cell_type_for_attribute = "cell_type_for_#{attribute}".to_sym
+            cell_type = if respond_to?(custom_cell_type_for_attribute)
+                          send(custom_cell_type_for_attribute)
+                        else
+                          cell_type_for(attribute)
+                        end
+
             hash[attribute] = {
-              type: resource.columns_hash[attribute.to_s]&.type || :string,
+              type: cell_type,
               sortable: resource.columns_hash[attribute.to_s].present?,
               sort: attribute
             }
           end
+        end
+
+        def cell_type_for(attribute)
+          resource.columns_hash[attribute.to_s]&.type || :string
         end
 
         def resource_create_attributes

@@ -27,6 +27,8 @@ module Tailwind
           I18n.l(value, format: :long)
         when :boolean
           value ? 'Yes' : 'No'
+        when :link
+          link_to value, value, target: '_blank', class: 'text-blue-500 hover:underline'
         when :integer
           # number_with_delimiter(value)
           value
