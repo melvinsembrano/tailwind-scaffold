@@ -140,7 +140,7 @@
     @apply text-tw-900 text-sm font-medium leading-6;
   }
 
-  .tw__show__content__row__value {
+  .tws__show__content__row__value {
     @apply text-tw-700 mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0;
   }
 }
