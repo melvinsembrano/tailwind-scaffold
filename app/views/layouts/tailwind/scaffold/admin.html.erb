@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag "tailwind/scaffold/application", media: "all" %>
     <%= stylesheet_link_tag "tailwind/scaffold/admin", media: "all" %>
     <%= javascript_include_tag "tailwind/scaffold/base", "data-turbo-track": "reload", defer: true %>
+    <%= yield :head %>
   </head>
   <body class="tws-admin h-full">
     <div>
