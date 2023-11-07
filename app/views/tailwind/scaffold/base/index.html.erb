@@ -1,6 +1,6 @@
 <div class="tws__page">
 <%= render 'tailwind/scaffold/components/notice', notice: %>
-<div class="">
+<div class="" data-controller="delete-confirm">
   <%= tws_table_heading resource_name, new_path: resource_new_url, q: params[:q] %>
   <div class="mt-8 flow-root">
     <%= tws_table_panel do %>
@@ -25,7 +25,7 @@
             <% end %>
             <% if allowed_actions[:delete] %>
               <div class="inline-block">
-                <%= button_to resource_url(resource), method: :delete, data: { confirm: "Are you sure?" }, class: "dange flex flex-col" do %>
+                <%= button_to resource_url(resource), method: :delete, data: { confirm: "Are you sure?", action: "click->delete-confirm#delete" }, class: "secondary flex flex-col items-center" do %>
                   <%= render "layouts/tailwind/scaffold/admin/icons/delete", style: "h-5 h-5" %>
                   <div class="text-xs">delete</div>
                 <% end %>
