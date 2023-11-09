@@ -15,6 +15,11 @@ module Tailwind
       def format_cell_value(value, options = {})
         return options[:default] || '-' if value.blank?
 
+        custom_cell_value_for_attribute = "format_cell_for_#{options[:attribute]}"
+        if respond_to?(custom_cell_value_for_attribute)
+          return send(custom_cell_value_for_attribute.to_sym, value, options)
+        end
+
         format_cell_value_for_type(value, options[:type])
       end
 
@@ -26,6 +31,8 @@ module Tailwind
           I18n.l(value, format: :short)
         when :text, :string
           truncate(value, length: 50)
+        when :link
+          link_to value, value, target: '_blank', class: 'text-blue-500 hover:underline'
         else
           value
         end

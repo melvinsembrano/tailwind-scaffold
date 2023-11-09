@@ -8,7 +8,7 @@
         <%= tws_table_header index_attributes %>
         <%= tws_table_body @resources do |resource| %>
           <% index_attributes.each do |k, options| %>
-            <%= tws_table_td format_cell_value(resource.send(k), options) %>
+            <%= tws_table_td format_cell_value(resource.send(k), options.merge(attribute: k)) %>
           <% end %>
           <%= tws_table_td_actions do %>
             <% if allowed_actions[:show] %>
