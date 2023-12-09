@@ -21,6 +21,17 @@ Or install it yourself as:
 $ gem install tailwind-scaffold
 ```
 
+### Configuration
+
+Add the following to your `app/assets/config/manifest.js` file:
+
+```js
+//= link tailwind/scaffold/application.css
+//= link tailwind/scaffold/admin.css
+//= link tailwind/scaffold/base.js
+//= link tailwind/scaffold/actiontext.css
+```
+
 ## Contributing
 Contribution directions go here.
 

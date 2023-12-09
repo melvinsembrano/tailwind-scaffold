@@ -30,6 +30,7 @@ module Tailwind
         when :datetime, :date, :time
           I18n.l(value, format: :short)
         when :text, :string
+          value = value.join(', ') if value.is_a?(Array)
           truncate(value, length: 50)
         when :link
           link_to value, value, target: '_blank', class: 'text-blue-500 hover:underline'

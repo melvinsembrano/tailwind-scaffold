@@ -5,7 +5,7 @@ module Tailwind
     class FormBuilder < ActionView::Helpers::FormBuilder
 
       %i[text_field email_field text_area number_field date_field datetime_field check_box
-         password_field].each do |field_type|
+         password_field rich_text_area].each do |field_type|
         define_method "tws_#{field_type}" do |method, options = {}|
           @template.render(
             partial: 'tailwind/scaffold/components/input_field',
