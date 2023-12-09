@@ -21,6 +21,14 @@ Or install it yourself as:
 $ gem install tailwind-scaffold
 ```
 
+### Usage
+
+#### Scaffold
+
+```bash
+$ rails g tailwind_scaffold [ControllerName]
+```
+
 ### Configuration
 
 Add the following to your `app/assets/config/manifest.js` file:
