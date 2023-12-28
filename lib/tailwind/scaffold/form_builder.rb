@@ -14,17 +14,21 @@ module Tailwind
         end
       end
 
-      def tws_select(method, choices = nil, options = {}, html_options = {}, &)
+      def tws_select(method, choices = nil, options = {}, html_options = {})
         select_options = html_options.merge(class: 'tws__form__select')
 
-        @template.content_tag(:div, class: 'tws__form__panel') do
-          [
-            label(method, class: 'tws__form__label'),
-            @template.content_tag(:div, class: 'tws__form__input') do
-              select(method, choices, options, select_options, &)
-            end
-          ].join.html_safe
-        end
+        # @template.content_tag(:div, class: 'tws__form__panel') do
+        #   [
+        #     label(method, class: 'tws__form__label'),
+        #     @template.content_tag(:div, class: 'tws__form__input') do
+        #       select(method, choices, options, select_options, &)
+        #     end
+        #   ].join.html_safe
+        # end
+        @template.render(
+          partial: 'tailwind/scaffold/components/select',
+          locals: { form: self, method:, choices:, options:, select_options: }
+        )
       end
 
       def tws_errors(errors)

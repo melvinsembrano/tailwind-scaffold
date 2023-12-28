@@ -1,0 +1,11 @@
+<div class="tws__form__panel">
+  <%= form.label method, class: 'tws__form__label' %>
+  <div class="tws__form__input">
+    <%= form.select method, choices, options, select_options %>
+  </div>
+  <% if form.object.errors[method].any? %>
+    <div class="tws__form__error">
+      <%= form.object.errors[method].join(', ') %>
+    </div>
+  <% end %>
+</div>

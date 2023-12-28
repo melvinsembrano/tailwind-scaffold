@@ -47,10 +47,12 @@ module Tailwind
         HTML
       end
 
-      def tws_table_panel(&)
+      def tws_table_panel(&block)
         content_tag(:div, class: 'tws__table__panel') do
           content_tag(:div, class: 'tws__table__panel_a') do
-            content_tag(:div, class: 'tws__table__panel_b', &)
+            content_tag(:div, class: 'tws__table__panel_b') do
+              block.call
+            end
           end
         end
       end
